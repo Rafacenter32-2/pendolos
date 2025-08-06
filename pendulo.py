@@ -1,23 +1,23 @@
 import turtle
 from time import sleep
 #array dos eixos| tamanho dos eixos| velocidade| cor dos eixos| cor do traçado| cor do plano de fundo
+space = False
+buffer = False
+stop = False
 def start(rotation,size,speed,axecolor,trail,background):
     config = {
-        rotation,
-        size,
-        speed,
-        axecolor,
-        trail,
-        background
+        "rotation":rotation,
+        "size":size,
+        "speed":speed,
+        "axecolor":axecolor,
+        "trail":trail,
+        "background":background
     }
     #para ter que mudar menos codigo :P
     turtle.delay(0.1)
     turtle.tracer(0)
     turtle.bgcolor("black")
 
-    space = False
-    buffer = False
-    stop = False
 
     screen = turtle.Screen()
     pause = False
