@@ -17,11 +17,11 @@ eixos = ttk.Entry(frm)
 eixos.grid(column=0,row=1)
 
 ttk.Label(frm, text="tamaho dos eixos").grid(column=1,row=2)
-escala = ttk.Scale(frm,from_=0.1,to=3,orient="horizontal")
+escala = ttk.Spinbox(frm,from_=0.1,to=3)
 escala.grid(column=0,row=2)
 
 ttk.Label(frm, text="velocidade dos eixos").grid(column=1,row=3)
-velocidade = ttk.Scale(frm,from_=0.5,to=2,orient="horizontal")
+velocidade = ttk.Spinbox(frm,from_=0.5,to=2)
 velocidade.grid(column=0,row=3)
 
 ttk.Label(frm, text="Cor do eixo (em ingles)").grid(column=1,row=4)
