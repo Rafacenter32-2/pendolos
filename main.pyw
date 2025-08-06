@@ -37,6 +37,7 @@ buffer = False
 stop = False
 
 screen = turtle.Screen()
+pause = False
 def onspace():
     global space
     global buffer
@@ -58,6 +59,7 @@ puffy = turtle.Turtle()
 puffball = turtle.Turtle()
 
 axes = [90] + [0] * (len(config["rotation"]) -1)
+axestemplate = [90] + [0] * (len(config["rotation"]) -1)
 trail = []
 puffy.speed(0)
 puffy.hideturtle()
@@ -68,11 +70,17 @@ puffy.color(config["axecolor"])
 puffball.color(config["trail"])
 puffy.pen(pensize=7)
 puffball.pen(pensize=7)
-
-
+time = 0
 
 while not stop:
-    if (space):
+    if (space and not pause):
+        if time > 5:
+            for i in range(len(axes)):
+                if axes[i] % 360 != axestemplate[i] % 360:
+                    all_match = False
+                    break
+            if all_match == True:
+                pause = True
         puffy.clear()
         puffy.goto(0,0)
         puffy.setheading(0)
@@ -91,9 +99,12 @@ while not stop:
         axes[2] += (axemoves[2]*10)-5
         axes[3] += (axemoves[3]*10)-5
         #"""
+        time += 1
         for i in range(len(config["rotation"])):
             axes[i] += config["rotation"][i]
-    else:
+        all_match = True
+                
+    elif not space:
         puffy.goto(0,0)
         puffy.write("precione espaço para continuar e enter para parar \n (ou vai dar erro)",font=("Arial",16,"normal"),align="center")
     turtle.update()
