@@ -1,5 +1,6 @@
 import pendulo
 import json
+import asyncio
 from tkinter import *
 from tkinter import ttk
 root = Tk()
@@ -20,7 +21,7 @@ escala = ttk.Scale(frm,from_=0.1,to=3,orient="horizontal")
 escala.grid(column=0,row=2)
 
 ttk.Label(frm, text="velocidade dos eixos").grid(column=1,row=3)
-velocidade = ttk.Scale(frm,from_=0.5,to=0.2,orient="horizontal")
+velocidade = ttk.Scale(frm,from_=0.5,to=2,orient="horizontal")
 velocidade.grid(column=0,row=3)
 
 ttk.Label(frm, text="Cor do eixo (em ingles)").grid(column=1,row=4)
@@ -35,6 +36,6 @@ ttk.Label(frm, text="Cor do fundo (em ingles)").grid(column=1,row=6)
 cor_trilha = ttk.Entry(frm)
 cor_trilha.grid(column=0,row=6)
 
-ttk.Button(frm, text="iniciar", command=lambda: pendulo.start(json.loads("["+eixos.get()+"]"),escala.get(),velocidade.get(),"white","gray","black"),).grid(column=0,row=7)
+ttk.Button(frm, text="iniciar", command=lambda: asyncio.run(pendulo.start(json.loads("["+eixos.get()+"]"),escala.get(),velocidade.get(),"white","gray","black")),).grid(column=0,row=7)
 
 root.mainloop()

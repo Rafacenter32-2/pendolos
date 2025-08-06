@@ -1,7 +1,7 @@
 import turtle
 from time import sleep
 #array dos eixos| tamanho dos eixos| velocidade| cor dos eixos| cor do traçado| cor do plano de fundo
-def start(rotation,size,speed,axecolor,trail,background):
+async def start(rotation,size,speed,axecolor,trail,background):
     space = False
     buffer = False
     stop = False
@@ -82,12 +82,12 @@ def start(rotation,size,speed,axecolor,trail,background):
             """
             time += 1
             for i in range(len(config["rotation"])):
-                axes[i] += config["rotation"][i] * speed
+                axes[i] += config["rotation"][i]
             all_match = True
 
         elif not space:
             puffy.goto(0,0)
             puffy.write("precione espaço para continuar e enter para parar \n (ou vai dar erro)",font=("Arial",16,"normal"),align="center")
         turtle.update()
-        sleep(1/60)
+        sleep((2-speed)/60)
     turtle.bye()
