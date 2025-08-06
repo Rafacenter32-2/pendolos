@@ -16,7 +16,7 @@ async def start(rotation,size,speed,axecolor,trail,background):
     #para ter que mudar menos codigo :P
     turtle.delay(0.1)
     turtle.tracer(0)
-    turtle.bgcolor("black")
+    turtle.bgcolor(background)
     screen = turtle.Screen()
     pause = False
     def onspace():
