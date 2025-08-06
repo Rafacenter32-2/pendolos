@@ -26,16 +26,18 @@ velocidade.grid(column=0,row=3)
 
 ttk.Label(frm, text="Cor do eixo (em ingles)").grid(column=1,row=4)
 cor_eixo = ttk.Entry(frm)
+cor_eixo.insert(0,"white")
 cor_eixo.grid(column=0,row=4)
 
 ttk.Label(frm, text="Cor da trilha (em ingles)").grid(column=1,row=5)
 cor_trilha = ttk.Entry(frm)
+cor_trilha.insert(0,"gray")
 cor_trilha.grid(column=0,row=5)
 
 ttk.Label(frm, text="Cor do fundo (em ingles)").grid(column=1,row=6)
-cor_trilha = ttk.Entry(frm)
-cor_trilha.grid(column=0,row=6)
-
-ttk.Button(frm, text="iniciar", command=lambda: asyncio.run(pendulo.start(json.loads("["+eixos.get()+"]"),escala.get(),velocidade.get(),"white","gray","black")),).grid(column=0,row=7)
+cor_fundo = ttk.Entry(frm)
+cor_fundo.insert(0,"black")
+cor_fundo.grid(column=0,row=6)
+ttk.Button(frm, text="iniciar", command=lambda: asyncio.run(pendulo.start(json.loads("["+eixos.get()+"]"),escala.get(),velocidade.get(),cor_eixo.get(),cor_trilha.get(),cor_fundo.get())),).grid(column=0,row=7)
 
 root.mainloop()
