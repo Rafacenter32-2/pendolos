@@ -82,12 +82,12 @@ def start(rotation,size,speed,axecolor,trail,background):
             """
             time += 1
             for i in range(len(config["rotation"])):
-                axes[i] += config["rotation"][i]
+                axes[i] += config["rotation"][i] * speed
             all_match = True
 
         elif not space:
             puffy.goto(0,0)
             puffy.write("precione espaço para continuar e enter para parar \n (ou vai dar erro)",font=("Arial",16,"normal"),align="center")
         turtle.update()
-        sleep(config["speed"])
+        sleep(1/60)
     turtle.bye()
