@@ -16,11 +16,11 @@ ttk.Label(frm, text="escreva clocando numeros e virgulas\nex:2,1,0.5\nquanto mai
 eixos = ttk.Entry(frm)
 eixos.grid(column=0,row=1)
 
-ttk.Label(frm, text="tamaho dos eixos").grid(column=1,row=2)
+ttk.Label(frm, text="tamaho dos eixos (de 0.1 a 3)").grid(column=1,row=2)
 escala = ttk.Spinbox(frm,from_=0.1,to=3)
 escala.grid(column=0,row=2)
 
-ttk.Label(frm, text="velocidade dos eixos").grid(column=1,row=3)
+ttk.Label(frm, text="velocidade dos eixos (de 0.5 a 2)").grid(column=1,row=3)
 velocidade = ttk.Spinbox(frm,from_=0.5,to=2)
 velocidade.grid(column=0,row=3)
 
