@@ -5,7 +5,10 @@ from tkinter import *
 from tkinter import ttk
 root = Tk()
 root.title("explorador de pendulo")
-root.iconbitmap("./icone.ico")
+try:
+    root.iconbitmap("./icone.ico")
+except:
+    print("icon not found")
 
 frm = ttk.Frame(root, padding=10,)
 frm.grid()
