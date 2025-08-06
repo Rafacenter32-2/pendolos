@@ -1,10 +1,10 @@
 import turtle
 from time import sleep
 #array dos eixos| tamanho dos eixos| velocidade| cor dos eixos| cor do traçado| cor do plano de fundo
-space = False
-buffer = False
-stop = False
 def start(rotation,size,speed,axecolor,trail,background):
+    space = False
+    buffer = False
+    stop = False
     config = {
         "rotation":rotation,
         "size":size,
@@ -17,21 +17,19 @@ def start(rotation,size,speed,axecolor,trail,background):
     turtle.delay(0.1)
     turtle.tracer(0)
     turtle.bgcolor("black")
-
-
     screen = turtle.Screen()
     pause = False
     def onspace():
-        global space
-        global buffer
+        nonlocal space
+        nonlocal buffer
         if (not buffer):
             space = not space
             buffer = True
     def onenter():
-        global stop
+        nonlocal stop
         stop = True
     def onspacerelease():
-        global buffer
+        nonlocal buffer
         buffer = False
     screen.onkeypress(onspace, "space")
     screen.onkeyrelease(onspacerelease, "space")
@@ -81,7 +79,7 @@ def start(rotation,size,speed,axecolor,trail,background):
             axes[1] += (axemoves[1]*10)-5
             axes[2] += (axemoves[2]*10)-5
             axes[3] += (axemoves[3]*10)-5
-            #"""
+            """
             time += 1
             for i in range(len(config["rotation"])):
                 axes[i] += config["rotation"][i]
